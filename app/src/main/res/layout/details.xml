@@ -34,7 +34,7 @@
         android:id="@+id/imageView5"
         android:layout_width="87dp"
         android:layout_height="72dp"
-        app:srcCompat="@android:drawable/ic_baseline_map_24"
+        app:srcCompat="@drawable/ic_baseline_map_24"
         tools:layout_editor_absoluteX="308dp"
         tools:layout_editor_absoluteY="283dp" />
 
