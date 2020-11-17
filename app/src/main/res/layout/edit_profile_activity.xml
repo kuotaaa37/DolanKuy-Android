@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="65dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:src="@drawable/avatar"
+            app:civ_border_color="#707070"
+            app:civ_border_width="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="148dp"/>
+
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="20dp"
+            android:text="Edit Photo Profile"
+            android:layout_below="@id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="140dp"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_italic"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:layout_marginTop="210dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="20dp"
+            android:text="Username"
+            android:layout_below="@id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="#000000"
+            android:textSize="15dp"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_background"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="20dp"
+            android:text="Password"
+            android:layout_below="@id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_background"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="20dp"
+            android:text="Email"
+            android:layout_below="@id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_background"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="30dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_background"
+            android:textSize="18dp"
+            android:text="Simpan Perubahan"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</RelativeLayout>
