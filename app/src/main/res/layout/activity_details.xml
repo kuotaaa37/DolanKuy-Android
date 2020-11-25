@@ -12,7 +12,8 @@
         android:layout_height="281dp"
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="-10dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:text="Pantai Selatan"
         tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="283dp" />
+        tools:layout_editor_absoluteY="283dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView5"
@@ -28,7 +30,8 @@
         android:layout_height="wrap_content"
         android:text="200Km"
         tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="313dp" />
+        tools:layout_editor_absoluteY="313dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -36,7 +39,8 @@
         android:layout_height="72dp"
         app:srcCompat="@drawable/ic_baseline_map_24"
         tools:layout_editor_absoluteX="308dp"
-        tools:layout_editor_absoluteY="283dp" />
+        tools:layout_editor_absoluteY="283dp"
+        tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
     <Button
         android:id="@+id/button"
@@ -44,15 +48,17 @@
         android:layout_height="47dp"
         android:text="Deskripsi"
         tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="372dp" />
+        tools:layout_editor_absoluteY="372dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="206dp"
         android:layout_height="46dp"
-        android:text="Foto&Video"
+        android:text="Foto&amp;Video"
         tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="372dp" />
+        tools:layout_editor_absoluteY="372dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView6"
@@ -64,5 +70,6 @@
         and peninsular Malaysia, with Indonesia\'s Riau Islands to the south. Singapore\'s territory
         consists of the diamond-shaped main island and 62 islets."
         tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="430dp" />
+        tools:layout_editor_absoluteY="430dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

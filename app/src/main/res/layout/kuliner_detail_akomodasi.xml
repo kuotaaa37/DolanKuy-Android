@@ -18,7 +18,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="666dp"
+        android:layout_height="641dp"
         android:layout_margin="10dp"
         android:orientation="horizontal">
 
@@ -32,8 +32,8 @@
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="@+id/sate2"
             app:srcCompat="@drawable/sate"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/tfsate1"
@@ -45,9 +45,9 @@
             android:text="Sate Klathak Pak Pong 212,34 km"
             android:textColor="@color/white"
             android:textSize="14dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="114dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="114dp" />
 
         <ImageView
             android:id="@+id/sate2"
@@ -55,9 +55,9 @@
             android:layout_height="178dp"
             android:layout_alignParentRight="true"
             app:srcCompat="@drawable/sate"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="205dp"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="0dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
