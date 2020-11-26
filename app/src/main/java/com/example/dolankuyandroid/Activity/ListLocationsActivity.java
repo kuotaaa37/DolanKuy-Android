@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dolankuyandroid.API.APIRequestDataDashboard;
 import com.example.dolankuyandroid.API.RetroServerDashboard;
 import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
+import com.example.dolankuyandroid.Adapter.AdapterDataListLocations;
 import com.example.dolankuyandroid.Model.DataModelDashboard;
 import com.example.dolankuyandroid.Model.ResponseModelDashboard;
+import com.example.dolankuyandroid.Model.ResponseModelListLocations;
 import com.example.dolankuyandroid.R;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class ListLocationsActivity extends AppCompatActivity {
     private RecyclerView rvData;
     private RecyclerView.Adapter adData;
     private RecyclerView.LayoutManager lmData;
@@ -31,34 +33,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activivty_dashboard);
+        setContentView(R.layout.list_wisata);
 
-        rvData = findViewById(R.id.recycleViewData);
+        rvData = findViewById(R.id.recylerViewWisata);
         lmData = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        GridLayoutManager glManager = new GridLayoutManager(this,2, GridLayoutManager.VERTICAL, false);
+
         rvData.setLayoutManager(lmData);
-        rvData.setLayoutManager(glManager);
+
         locationWisataDashboard();
     }
 
     private void locationWisataDashboard(){
         APIRequestDataDashboard ardData = RetroServerDashboard.konekRetrofit().create(APIRequestDataDashboard.class);
-        Call<ResponseModelDashboard> tampilData =ardData.ardLocationsWisataDashboard();
+        Call<ResponseModelListLocations> tampilData = ardData.ardLocationsWisata();
 
-        tampilData.enqueue(new Callback<ResponseModelDashboard>() {
+        tampilData.enqueue(new Callback<ResponseModelListLocations>() {
             @Override
-            public void onResponse(Call<ResponseModelDashboard> call, Response<ResponseModelDashboard> response) {
-                listData = response.body().getAcomodation();
+            public void onResponse(Call<ResponseModelListLocations> call, Response<ResponseModelListLocations> response) {
+                listData = response.body().getLocations();
 
-               adData = new AdapterDataDashboard(MainActivity.this, listData);
-               rvData.setAdapter(adData);
-               adData.notifyDataSetChanged();
+                adData = new AdapterDataListLocations(ListLocationsActivity.this, listData);
+                rvData.setAdapter(adData);
+                adData.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<ResponseModelDashboard> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<ResponseModelListLocations> call, Throwable t) {
+                Toast.makeText(ListLocationsActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 }
