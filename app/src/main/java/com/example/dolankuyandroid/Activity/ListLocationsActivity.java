@@ -40,10 +40,10 @@ public class ListLocationsActivity extends AppCompatActivity {
 
         rvData.setLayoutManager(lmData);
 
-        locationWisataDashboard();
+        listLocationWisataDashboard();
     }
 
-    private void locationWisataDashboard(){
+    private void listLocationWisataDashboard(){
         APIRequestDataDashboard ardData = RetroServerDashboard.konekRetrofit().create(APIRequestDataDashboard.class);
         Call<ResponseModelListLocations> tampilData = ardData.ardLocationsWisata();
 
