@@ -12,8 +12,9 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.DashboardActivity"/>
-        <activity android:name=".Activity.SplashScreenActivity">
+<!--        <activity android:name=".Activity.ListLocationsActivity"/>-->
+
+        <activity android:name=".Activity.ListLocationsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
