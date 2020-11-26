@@ -15,29 +15,28 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <RelativeLayout
-            android:id="@+id/linearLayoutKuliner"
             android:layout_width="wrap_content"
             android:layout_height="205dp"
             android:layout_margin="10dp">
 
             <TextView
-                android:id="@+id/idKuliner"
+                android:id="@+id/idAkomodasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageKuliner"
+                android:layout_below="@id/imageAkomodasi"
                 android:text="id"
                 android:textSize="20dp"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/imageKuliner"
+                android:id="@+id/imageAkomodasi"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/sate" />
 
             <TextView
-                android:id="@+id/nameKuliner"
+                android:id="@+id/nameAkomodasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

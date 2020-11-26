@@ -4,16 +4,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dolankuyandroid.API.APIRequestDataDashboard;
+import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServerDashboard;
-import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
 import com.example.dolankuyandroid.Adapter.AdapterDataListLocations;
-import com.example.dolankuyandroid.Model.DataModelDashboard;
-import com.example.dolankuyandroid.Model.ResponseModelDashboard;
+import com.example.dolankuyandroid.Model.DataModel;
 import com.example.dolankuyandroid.Model.ResponseModelListLocations;
 import com.example.dolankuyandroid.R;
 
@@ -28,12 +25,12 @@ public class ListLocationsActivity extends AppCompatActivity {
     private RecyclerView rvData;
     private RecyclerView.Adapter adData;
     private RecyclerView.LayoutManager lmData;
-    private List<DataModelDashboard> listData = new ArrayList<>();
+    private List<DataModel> listData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_wisata);
+        setContentView(R.layout.activity_list_wisata);
 
         rvData = findViewById(R.id.recylerViewWisata);
         lmData = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -44,14 +41,13 @@ public class ListLocationsActivity extends AppCompatActivity {
     }
 
     private void locationWisataDashboard(){
-        APIRequestDataDashboard ardData = RetroServerDashboard.konekRetrofit().create(APIRequestDataDashboard.class);
+        APIRequestData ardData = RetroServerDashboard.konekRetrofit().create(APIRequestData.class);
         Call<ResponseModelListLocations> tampilData = ardData.ardLocationsWisata();
 
         tampilData.enqueue(new Callback<ResponseModelListLocations>() {
             @Override
             public void onResponse(Call<ResponseModelListLocations> call, Response<ResponseModelListLocations> response) {
                 listData = response.body().getLocations();
-
                 adData = new AdapterDataListLocations(ListLocationsActivity.this, listData);
                 rvData.setAdapter(adData);
                 adData.notifyDataSetChanged();

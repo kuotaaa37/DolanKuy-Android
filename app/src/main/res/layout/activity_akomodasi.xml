@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <SearchView
-        android:id="@+id/searchViewKulinerAkomodasi"
+        android:id="@+id/searchViewAkomodasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -21,11 +21,12 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAkomodasi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
-            tools:listitem="@layout/kuliner_card" />
+            tools:listitem="@layout/card_akomodasi" />
     </RelativeLayout>
 
 </LinearLayout>

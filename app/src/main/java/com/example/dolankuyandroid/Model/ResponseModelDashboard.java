@@ -3,14 +3,14 @@ package com.example.dolankuyandroid.Model;
 import java.util.List;
 
 public class ResponseModelDashboard {
-    private List<DataModelDashboard> acomodation;
+    private List<DataModel> acomodation;
 
-    public List<DataModelDashboard> getLocation() {
+    public List<DataModel> getLocation() {
 
         return acomodation;
     }
 
-    public void setLocation(List<DataModelDashboard> location) {
+    public void setLocation(List<DataModel> location) {
 
         this.acomodation = location;
     }
