@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.MainActivity"
+    tools:context=".Activity.DashboardActivity"
     android:background="#FFFFFF"
     >
 
@@ -30,7 +30,7 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/kuy"
+                android:src="@drawable/logo_dolankuy"
                 />
 
         </androidx.appcompat.widget.Toolbar>
@@ -98,9 +98,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                tools:ignore="MissingConstraints">
+                android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleViewData"

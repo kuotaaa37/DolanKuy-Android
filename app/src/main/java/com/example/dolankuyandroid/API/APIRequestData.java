@@ -5,7 +5,7 @@ import com.example.dolankuyandroid.Model.ResponseModelDashboard;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface APIRequestDataDashboard {
+public interface APIRequestData {
     @GET("acomodation")
     Call<ResponseModelDashboard> ardLocationsWisataDashboard();
 }

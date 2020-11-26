@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dolankuyandroid.API.APIRequestDataDashboard;
-import com.example.dolankuyandroid.API.RetroServerDashboard;
+import com.example.dolankuyandroid.API.APIRequestData;
+import com.example.dolankuyandroid.API.RetroServer;
 import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
-import com.example.dolankuyandroid.Model.DataModelDashboard;
+import com.example.dolankuyandroid.Model.DataModel;
 import com.example.dolankuyandroid.Model.ResponseModelDashboard;
 import com.example.dolankuyandroid.R;
 
@@ -22,11 +22,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
     private RecyclerView rvData;
     private RecyclerView.Adapter adData;
     private RecyclerView.LayoutManager lmData;
-    private List<DataModelDashboard> listData = new ArrayList<>();
+    private List<DataModel> listData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +42,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void locationWisataDashboard(){
-        APIRequestDataDashboard ardData = RetroServerDashboard.konekRetrofit().create(APIRequestDataDashboard.class);
+        APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
         Call<ResponseModelDashboard> tampilData =ardData.ardLocationsWisataDashboard();
 
         tampilData.enqueue(new Callback<ResponseModelDashboard>() {
             @Override
             public void onResponse(Call<ResponseModelDashboard> call, Response<ResponseModelDashboard> response) {
                listData = response.body().getLocation();
-               adData = new AdapterDataDashboard(MainActivity.this, listData);
+               adData = new AdapterDataDashboard(DashboardActivity.this, listData);
                rvData.setAdapter(adData);
                adData.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<ResponseModelDashboard> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DashboardActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

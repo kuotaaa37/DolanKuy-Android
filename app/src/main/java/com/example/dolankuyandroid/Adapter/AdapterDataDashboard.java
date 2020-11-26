@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dolankuyandroid.Model.DataModelDashboard;
+import com.example.dolankuyandroid.Model.DataModel;
 import com.example.dolankuyandroid.R;
 
 import java.util.List;
 
 public class AdapterDataDashboard extends RecyclerView.Adapter<AdapterDataDashboard.HolderData> {
     private Context context;
-    private List<DataModelDashboard> listWisataDashboard;
+    private List<DataModel> listWisataDashboard;
 
-    public AdapterDataDashboard(Context context, List<DataModelDashboard> listWisataDashboard) {
+    public AdapterDataDashboard(Context context, List<DataModel> listWisataDashboard) {
         this.context = context;
         this.listWisataDashboard = listWisataDashboard;
     }
@@ -34,7 +34,7 @@ public class AdapterDataDashboard extends RecyclerView.Adapter<AdapterDataDashbo
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        DataModelDashboard dmDashboard = listWisataDashboard.get(position);
+        DataModel dmDashboard = listWisataDashboard.get(position);
 
         holder.tvId.setText(String.valueOf(dmDashboard.getId()));
         holder.tvName.setText(dmDashboard.getName());
