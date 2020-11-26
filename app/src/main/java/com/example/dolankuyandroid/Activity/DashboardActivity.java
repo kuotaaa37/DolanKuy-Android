@@ -4,33 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dolankuyandroid.API.APIRequestData;
-import com.example.dolankuyandroid.API.RetroServerDashboard;
-import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
+import com.example.dolankuyandroid.Fragment.CategoryFragment;
 import com.example.dolankuyandroid.Fragment.DashboardFragment;
-import com.example.dolankuyandroid.Model.DataModel;
-import com.example.dolankuyandroid.Model.ResponseModelDashboard;
+import com.example.dolankuyandroid.Fragment.ListLocationsFragment;
+import com.example.dolankuyandroid.Fragment.ProfileFragment;
 import com.example.dolankuyandroid.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class DashboardActivity extends AppCompatActivity {
+
+    TextView textView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +33,9 @@ public class DashboardActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.botNav_container, new DashboardFragment());
         fragmentTransaction.commit();
 
-        TextView textView = findViewById(R.id.title);
+        textView = findViewById(R.id.title);
         textView.setText("Dashboard");
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -54,23 +45,32 @@ public class DashboardActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.home_botNav:
-                    return true;
+                    selectedFragment = new DashboardFragment();
+                    overridePendingTransition(0, 0);
+                    textView.setText("Dashboard");
+                    break;
                 case R.id.listWisata_botNav:
-                    startActivity(new Intent(getApplicationContext()
-                            ,ListLocationsActivity.class));
+                    selectedFragment = new ListLocationsFragment();
                     overridePendingTransition(0,0);
-                    return true;
+                    textView.setText("List Wisata");
+                    break;
+
                 case R.id.akomodasi_botNav:
-                    startActivity(new Intent(getApplicationContext()
-                            ,ListAkomodasiActivity.class));
+                    selectedFragment = new CategoryFragment();
                     overridePendingTransition(0,0);
-                    return true;
+                    textView.setText("Akomodasi");
+                    break;
+
                 case R.id.profile_botNav:
-                    startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    selectedFragment = new ProfileFragment();
                     overridePendingTransition(0,0);
-                    return true;
+                    textView.setText("Profile");
+                    break;
             }
-            return false;
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.botNav_container,
+                    selectedFragment).commit();
+            return true;
         }
     };
 }
