@@ -20,7 +20,7 @@ private String description;
 private int category_id;
 
 @SerializedName("contact")
-private int contact;
+private double contact;
 
 @SerializedName("latitude")
 private float latitude;
@@ -71,7 +71,7 @@ private int distance;
         this.category_id = category_id;
     }
 
-    public int getContact() {
+    public double getContact() {
         return contact;
     }
 
