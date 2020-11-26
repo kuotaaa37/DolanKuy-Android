@@ -8,7 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface APIRequestDataDashboard {
+public interface APIRequestData {
     @GET("acomodation")
     Call<ResponseModelDashboard> ardLocationsWisataDashboard();
     @GET("locations")
