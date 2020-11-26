@@ -1,9 +1,15 @@
 package com.example.dolankuyandroid.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,9 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServerDashboard;
 import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
+import com.example.dolankuyandroid.Fragment.DashboardFragment;
 import com.example.dolankuyandroid.Model.DataModel;
 import com.example.dolankuyandroid.Model.ResponseModelDashboard;
 import com.example.dolankuyandroid.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,41 +31,46 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
-    private RecyclerView rvData;
-    private RecyclerView.Adapter adData;
-    private RecyclerView.LayoutManager lmData;
-    private List<DataModel> listData = new ArrayList<>();
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activivty_dashboard);
+        setContentView(R.layout.navigation_bottom);
 
-        rvData = findViewById(R.id.recycleViewData);
-        lmData = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        GridLayoutManager glManager = new GridLayoutManager(this,2, GridLayoutManager.VERTICAL, false);
-        rvData.setLayoutManager(lmData);
-        rvData.setLayoutManager(glManager);
-        locationWisataDashboard();
+        BottomNavigationView botNavView = findViewById(R.id.bottom_navigation);
+        botNavView.setOnNavigationItemSelectedListener(navListener);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.botNav_container, new DashboardFragment());
+        fragmentTransaction.commit();
+
+        TextView textView = findViewById(R.id.title);
+        textView.setText("Dashboard");
     }
 
-    private void locationWisataDashboard(){
-        APIRequestData ardData = RetroServerDashboard.konekRetrofit().create(APIRequestData.class);
-        Call<ResponseModelDashboard> tampilData =ardData.ardLocationsWisataDashboard();
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
 
-        tampilData.enqueue(new Callback<ResponseModelDashboard>() {
-            @Override
-            public void onResponse(Call<ResponseModelDashboard> call, Response<ResponseModelDashboard> response) {
-               listData = response.body().getLocation();
-               adData = new AdapterDataDashboard(DashboardActivity.this, listData);
-               rvData.setAdapter(adData);
-               adData.notifyDataSetChanged();
+            switch (item.getItemId()){
+                case R.id.home_botNav:
+                    return true;
+                case R.id.listWisata_botNav:
+                    startActivity(new Intent(getApplicationContext()
+                            ,ListLocationsActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.akomodasi_botNav:
+                    startActivity(new Intent(getApplicationContext()
+                            ,ListAkomodasiActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.profile_botNav:
+                    startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
-
-            @Override
-            public void onFailure(Call<ResponseModelDashboard> call, Throwable t) {
-                Toast.makeText(DashboardActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+            return false;
+        }
+    };
 }
