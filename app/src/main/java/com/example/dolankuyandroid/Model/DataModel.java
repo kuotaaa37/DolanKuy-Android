@@ -2,7 +2,7 @@ package com.example.dolankuyandroid.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataModelDashboard {
+public class DataModel {
 
 @SerializedName("id")
 private int id;

@@ -1,16 +1,24 @@
-package com.example.dolankuyandroid.Activity;
+package com.example.dolankuyandroid.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServerDashboard;
-import com.example.dolankuyandroid.Adapter.AdapterDataListLocations;
+import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
 import com.example.dolankuyandroid.Model.DataModel;
+import com.example.dolankuyandroid.Model.DataModel;
+import com.example.dolankuyandroid.Model.ResponseModelDashboard;
 import com.example.dolankuyandroid.Model.ResponseModelListLocations;
 import com.example.dolankuyandroid.R;
 
@@ -21,23 +29,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListLocationsActivity extends AppCompatActivity {
+public class DashboardFragment extends Fragment {
     private RecyclerView rvData;
     private RecyclerView.Adapter adData;
     private RecyclerView.LayoutManager lmData;
     private List<DataModel> listData = new ArrayList<>();
+    View view;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_wisata);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.activivty_dashboard, container, false);
 
-        rvData = findViewById(R.id.recylerViewWisata);
-        lmData = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
+        rvData = view.findViewById(R.id.recycleViewData);
+        lmData = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager glManager = new GridLayoutManager(view.getContext(),2,GridLayoutManager.VERTICAL, false);
         rvData.setLayoutManager(lmData);
-
+        rvData.setLayoutManager(glManager);
         locationWisataDashboard();
+        return view;
     }
 
     private void locationWisataDashboard(){
@@ -48,17 +58,15 @@ public class ListLocationsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseModelListLocations> call, Response<ResponseModelListLocations> response) {
                 listData = response.body().getLocations();
-                adData = new AdapterDataListLocations(ListLocationsActivity.this, listData);
+                adData = new AdapterDataDashboard(view.getContext(), listData);
                 rvData.setAdapter(adData);
                 adData.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<ResponseModelListLocations> call, Throwable t) {
-                Toast.makeText(ListLocationsActivity.this, "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }
