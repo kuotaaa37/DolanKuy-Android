@@ -8,10 +8,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dolankuyandroid.Fragment.DashboardFragment;
+import com.example.dolankuyandroid.Preferences.Preferences;
 import com.example.dolankuyandroid.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
-    Button splashScreenBtn;
+    Button signInBtn;
     Button signUpBtn;
 
     @Override
@@ -19,15 +21,35 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
-        splashScreenBtn = findViewById(R.id.SignInButton);
-        splashScreenBtn.setOnClickListener(new View.OnClickListener() {
+        signInBtn = findViewById(R.id.SignInButton);
+        signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
         signUpBtn = findViewById(R.id.btnSignUpSplashScreen);
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (Preferences.getStatus(getBaseContext()).equals("true")){
+            startActivity(new Intent(getBaseContext(), DashboardActivity.class));
+            finish();
+        }
+
     }
 }
