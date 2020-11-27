@@ -9,16 +9,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServer;
-import com.example.dolankuyandroid.Adapter.AdapterDataDashboard;
+import com.example.dolankuyandroid.Adapter.AdapterDataListLocations;
 import com.example.dolankuyandroid.Model.DataModelDashboard;
 import com.example.dolankuyandroid.Model.ResponseModelListLocations;
-import com.example.dolankuyandroid.Preferences.Preferences;
 import com.example.dolankuyandroid.R;
 
 import java.util.ArrayList;
@@ -28,29 +26,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DashboardFragment extends Fragment {
+public class ListLocationsFragment extends Fragment {
+
     private RecyclerView rvData;
     private RecyclerView.Adapter adData;
     private RecyclerView.LayoutManager lmData;
     private List<DataModelDashboard> listData = new ArrayList<>();
-    View view;
+    private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activivty_dashboard, container, false);
 
-        rvData = view.findViewById(R.id.recycleViewData);
+        view = inflater.inflate(R.layout.activity_list_wisata, container, false);
+
+        rvData = view.findViewById(R.id.recylerViewWisata);
         lmData = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
-        GridLayoutManager glManager = new GridLayoutManager(view.getContext(),2,GridLayoutManager.VERTICAL, false);
-        rvData.setLayoutManager(lmData);
-        rvData.setLayoutManager(glManager);
 
-        Preferences.setStatus(getContext(), "true");
+        rvData.setLayoutManager(lmData);
 
         locationWisataDashboard();
+
         return view;
+
     }
+
+
 
     private void locationWisataDashboard(){
         APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
@@ -60,7 +61,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseModelListLocations> call, Response<ResponseModelListLocations> response) {
                 listData = response.body().getLocations();
-                adData = new AdapterDataDashboard(view.getContext(), listData);
+                adData = new AdapterDataListLocations(view.getContext(), listData);
                 rvData.setAdapter(adData);
                 adData.notifyDataSetChanged();
             }
@@ -70,5 +71,8 @@ public class DashboardFragment extends Fragment {
                 Toast.makeText(view.getContext(), "gagal menghubungkan " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
+
 }

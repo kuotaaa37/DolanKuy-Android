@@ -2,7 +2,7 @@ package com.example.dolankuyandroid.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataModel {
+public class DataModelDashboard {
 
 @SerializedName("id")
 private int id;
@@ -19,8 +19,8 @@ private String address;
 @SerializedName("description")
 private String description;
 
-//@SerializedName("image")
-//private String image;
+@SerializedName("image")
+private String image;
 
 @SerializedName("contact")
 private String contact;

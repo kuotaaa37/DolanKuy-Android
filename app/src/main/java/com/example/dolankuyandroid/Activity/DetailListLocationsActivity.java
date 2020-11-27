@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dolankuyandroid.API.APIRequestData;
-import com.example.dolankuyandroid.API.RetroServerDashboard;
-import com.example.dolankuyandroid.Model.DataModel;
+import com.example.dolankuyandroid.API.RetroServer;
+import com.example.dolankuyandroid.Model.DataModelDashboard;
 import com.example.dolankuyandroid.Model.ResponseModelDetailListLocations;
 import com.example.dolankuyandroid.R;
 
@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailListLocationsActivity extends AppCompatActivity {
-    private DataModel detailLocations;
+    private DataModelDashboard detailLocations;
     private String id;
     private int detailImage;
 
@@ -55,7 +55,7 @@ public class DetailListLocationsActivity extends AppCompatActivity {
     }
 
     private void detailListLocationWisata(){
-        APIRequestData ardData = RetroServerDashboard.konekRetrofit().create(APIRequestData.class);
+        APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
         Call<ResponseModelDetailListLocations> tampilData = ardData.getDetailLocations(Integer.parseInt(id));
 
         tampilData.enqueue(new Callback<ResponseModelDetailListLocations>() {
