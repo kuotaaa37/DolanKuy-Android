@@ -7,19 +7,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
+            android:layout_gravity="center"
             android:layout_width="118dp"
             android:layout_height="118dp"
             android:src="@drawable/ic_user"
             app:civ_border_color="#707070"
             app:civ_border_width="2dp"
             android:layout_marginTop="10dp"
-
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="145dp"/>
@@ -31,7 +31,7 @@
             android:text="username"
             android:layout_below="@id/profile_image"
             android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="65dp"
+            android:layout_gravity="center"
             android:textColor="#000000"
             android:textSize="35dp"
             android:fontFamily="@font/montserrat_regular"
@@ -44,7 +44,7 @@
             android:layout_height="20dp"
             android:text="email"
             android:layout_below="@id/profile_image"
-            android:layout_marginHorizontal="65dp"
+            android:layout_gravity="center"
             android:textSize="16dp"
             android:fontFamily="@font/montserrat_regular"
             android:textAlignment="center"
@@ -55,7 +55,7 @@
             android:id="@+id/bt_editProfile"
             android:layout_width="350dp"
             android:layout_height="45dp"
-            android:layout_marginHorizontal="30dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/montserrat_semi_bold"
@@ -68,7 +68,7 @@
             android:id="@+id/bt_logout"
             android:layout_width="350dp"
             android:layout_height="45dp"
-            android:layout_marginHorizontal="30dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/montserrat_semi_bold"
