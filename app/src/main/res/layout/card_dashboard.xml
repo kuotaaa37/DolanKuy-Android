@@ -41,7 +41,8 @@
             <ImageView
                 android:id="@+id/imageDashboard"
                 android:layout_width="match_parent"
-                android:layout_height="201dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/singapore" />
 
