@@ -142,7 +142,7 @@
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="Don't have an Account?"
-                android:textColor="#000"
+                android:textColor="@color/grey"
                 android:textStyle="bold" />
 
             <TextView

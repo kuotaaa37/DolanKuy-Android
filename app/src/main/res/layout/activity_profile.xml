@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:textColor="#000000"
             android:textSize="35dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_bold"
             android:textAlignment="center"
             android:gravity="center_horizontal" />
 
@@ -46,7 +46,7 @@
             android:layout_below="@id/profile_image"
             android:layout_gravity="center"
             android:textSize="16dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:textAlignment="center"
             android:textColor="#707070"
             android:gravity="center_horizontal" />
@@ -58,7 +58,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:fontFamily="@font/montserrat_semi_bold"
+            android:fontFamily="@font/montserrat_bold"
             android:textSize="18dp"
             android:text="Edit Profile"
             android:textAllCaps="false"
@@ -71,7 +71,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_background"
-            android:fontFamily="@font/montserrat_semi_bold"
+            android:fontFamily="@font/montserrat_bold"
             android:textSize="18dp"
             android:text="Logout"
             android:textAllCaps="false"
