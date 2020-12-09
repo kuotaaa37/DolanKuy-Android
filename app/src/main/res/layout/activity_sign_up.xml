@@ -175,7 +175,7 @@
                 android:layout_marginLeft="5dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="Already have an Account?"
-                android:textColor="#000"
+                android:textColor="@color/grey"
                 android:textStyle="bold" />
 
             <TextView

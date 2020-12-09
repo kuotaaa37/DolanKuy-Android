@@ -19,7 +19,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/asd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,7 +40,8 @@
                 android:text="Wisata"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:fontFamily="@font/montserrat_semi_bold"/>
 
             <Button
                 android:id="@+id/eventListWisataSearchBtn"
@@ -49,7 +51,8 @@
                 android:text="Event"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:fontFamily="@font/montserrat_semi_bold"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
