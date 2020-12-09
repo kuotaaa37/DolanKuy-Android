@@ -103,7 +103,6 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:textSize="16dp"
-            android:layout_gravity="center"
             android:background="@drawable/edit_text_background"
             android:inputType="textEmailAddress"
             />
