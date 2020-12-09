@@ -75,7 +75,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="id"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            android:fontFamily="@font/montserrat_semi_bold"/>
 
                         <TextView
                             android:id="@+id/nameListWisata1"
@@ -83,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:text="Wisata Taman Sari, Mengkhayalkan Para Putri"
                             android:textSize="12dp"
-                            android:textStyle="bold" />
+                            android:layout_marginBottom="5dp"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -91,15 +92,15 @@
                             android:orientation="horizontal">
 
                             <Button
-                                android:id="@+id/locationListWisataBtn1"
+                                android:id="@+id/card_list_wisata_btn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:background="@color/orange"
                                 android:layout_gravity="center"
                                 android:text="Patehan, Jogja"
                                 android:textColor="@color/white"
-                                android:textSize="5pt" />
+                                android:textSize="5pt"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:background="@drawable/button_bg"/>
                         </LinearLayout>
 
                         <TextView
@@ -107,12 +108,13 @@
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:background="@color/orange"
+                            android:background="@drawable/button_bg"
                             android:gravity="center_horizontal"
                             android:text="4,5 KM"
                             android:textAlignment="center"
                             android:textColor="@color/white"
-                            android:textSize="13dp" />
+                            android:textSize="13dp"
+                            android:fontFamily="@font/montserrat_semi_bold"/>
                     </LinearLayout>
 
                 </RelativeLayout>
