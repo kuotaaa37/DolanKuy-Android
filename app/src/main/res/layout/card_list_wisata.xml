@@ -36,26 +36,29 @@
                 >
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imgListWisata1"
-                    android:layout_width="174dp"
+                    android:layout_width="match_parent"
                     android:layout_height="135dp"
+                    android:scaleType="centerCrop"
                     android:layout_margin="5dp"
                     app:srcCompat="@drawable/list_wisata_picture" />
 
                 <TextView
-                    android:layout_width="38dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:background="@color/orange"
                     android:text="4.5"
-                    android:layout_marginTop="114dp"
+                    android:textAlignment="center"
+                    android:layout_marginTop="118dp"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:layout_marginLeft="141dp"
-                    android:textStyle="bold" />
+                    android:layout_marginLeft="135dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
 
                 </RelativeLayout>
 
@@ -75,8 +78,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="id"
-                            android:visibility="gone"
-                            android:fontFamily="@font/montserrat_semi_bold"/>
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/nameListWisata1"
@@ -84,7 +86,7 @@
                             android:layout_height="wrap_content"
                             android:text="Wisata Taman Sari, Mengkhayalkan Para Putri"
                             android:textSize="12dp"
-                            android:layout_marginBottom="5dp"/>
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -92,15 +94,16 @@
                             android:orientation="horizontal">
 
                             <Button
-                                android:id="@+id/card_list_wisata_btn"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/locationListWisataBtn1"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/orange"
+                                android:padding="10dp"
                                 android:text="Patehan, Jogja"
+                                android:textAllCaps="false"
                                 android:textColor="@color/white"
-                                android:textSize="5pt"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:background="@drawable/button_bg"/>
+                                android:textSize="5pt" />
                         </LinearLayout>
 
                         <TextView
@@ -108,13 +111,12 @@
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/button_bg"
+                            android:background="@color/orange"
                             android:gravity="center_horizontal"
                             android:text="4,5 KM"
                             android:textAlignment="center"
                             android:textColor="@color/white"
-                            android:textSize="13dp"
-                            android:fontFamily="@font/montserrat_semi_bold"/>
+                            android:textSize="13dp" />
                     </LinearLayout>
 
                 </RelativeLayout>
