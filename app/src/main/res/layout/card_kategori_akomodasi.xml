@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DashboardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:background="@drawable/ic_border"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp">
+
+                <ImageButton
+                    android:id="@+id/ibKuliner"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_kuliner"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/tvKuliner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:text="KULINER"
+                    android:textSize="24dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:background="@drawable/ic_border"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp">
+
+                <ImageButton
+                    android:id="@+id/ibTempatIbadah"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_tempat_ibadah"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/tvTempatIbadah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="TEMPAT IBADAH"
+                    android:textSize="24dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:background="@drawable/ic_border"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp">
+
+                <ImageButton
+                    android:id="@+id/ibSpbu"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_spbu"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/tvSpbu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:text="SPBU"
+                    android:textSize="24dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:background="@drawable/ic_border"
+                android:layout_marginLeft="5dp">
+
+                <ImageButton
+                    android:id="@+id/ibMarket"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_market"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/tvMarket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:text="MARKET"
+                    android:textSize="24dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

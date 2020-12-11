@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,8 +28,13 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardKuliner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                 <ImageButton
-                    android:id="@+id/ibKuliner"
+                    android:id="@+id/clickKuliner"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_marginTop="15dp"
@@ -38,10 +46,13 @@
                     android:id="@+id/tvKuliner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center_horizontal"
                     android:text="KULINER"
-                    android:textSize="24dp"/>
+                    android:textSize="24dp"
+                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -53,6 +64,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardIbadah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                 <ImageButton
                     android:id="@+id/ibTempatIbadah"
                     android:layout_width="90dp"
@@ -63,13 +79,16 @@
                     android:scaleType="fitXY"/>
 
                 <TextView
-                    android:id="@+id/tvTempatIbadah"
+                    android:id="@+id/clickTempatIbadah"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="TEMPAT IBADAH"
-                    android:textSize="24dp"/>
+                    android:textSize="24dp"
+                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -80,7 +99,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,8 +117,13 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardSPBU"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                 <ImageButton
-                    android:id="@+id/ibSpbu"
+                    android:id="@+id/clickSpbu"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginTop="25dp"
@@ -108,10 +135,13 @@
                     android:id="@+id/tvSpbu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center_horizontal"
                     android:text="SPBU"
-                    android:textSize="24dp"/>
+                    android:textSize="24dp"
+                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -122,8 +152,13 @@
                 android:background="@drawable/ic_border"
                 android:layout_marginLeft="5dp">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardMarket"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                 <ImageButton
-                    android:id="@+id/ibMarket"
+                    android:id="@+id/clickMarket"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginTop="25dp"
@@ -135,10 +170,13 @@
                     android:id="@+id/tvMarket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center_horizontal"
                     android:text="MARKET"
-                    android:textSize="24dp"/>
+                    android:textSize="24dp"
+                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
