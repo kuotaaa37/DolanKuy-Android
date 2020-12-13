@@ -64,7 +64,6 @@
                 android:layout_margin="2dp"
                 android:text="Name"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat_regular"
                 android:textSize="13sp" />
 
             <Button

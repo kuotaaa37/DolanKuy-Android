@@ -49,8 +49,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_horizontal"
                     android:text="KULINER"
-                    android:textSize="24dp"
-                    android:fontFamily="@font/montserrat_semi_bold"/>
+                    android:textSize="24dp"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -85,8 +84,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="TEMPAT IBADAH"
-                    android:textSize="24dp"
-                    android:fontFamily="@font/montserrat_semi_bold"/>
+                    android:textSize="24dp"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -138,8 +136,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_horizontal"
                     android:text="SPBU"
-                    android:textSize="24dp"
-                    android:fontFamily="@font/montserrat_semi_bold"/>
+                    android:textSize="24dp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -173,8 +170,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_horizontal"
                     android:text="MARKET"
-                    android:textSize="24dp"
-                    android:fontFamily="@font/montserrat_semi_bold"/>
+                    android:textSize="24dp"/>
 
                 </androidx.cardview.widget.CardView>
 
