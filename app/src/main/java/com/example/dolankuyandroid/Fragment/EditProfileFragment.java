@@ -22,9 +22,12 @@ import com.example.dolankuyandroid.Model.User;
 import com.example.dolankuyandroid.Preferences.Preferences;
 import com.example.dolankuyandroid.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.app.Activity.RESULT_OK;
 
 public class EditProfileFragment extends Fragment {
 
@@ -33,7 +36,13 @@ public class EditProfileFragment extends Fragment {
     private EditText et_username;
     private EditText et_password;
     private EditText et_email;
+
+    private CircleImageView civ_editProfile;
+    private TextView tv_editProfile;
+
     private User credentials;
+
+    private static final int IMAGE_PICK_CODE = 1000;
 
     @Nullable
     @Override
@@ -45,6 +54,15 @@ public class EditProfileFragment extends Fragment {
         et_username = view.findViewById(R.id.et_username);
         et_email = view.findViewById(R.id.et_email);
         et_password = view.findViewById(R.id.et_password);
+
+        civ_editProfile = view.findViewById(R.id.profile_image);
+        tv_editProfile = view.findViewById(R.id.tv_editProfile);
+        tv_editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickImageFromGallery();
+            }
+        });
 
         btn_save = view.findViewById(R.id.bt_saveProfile);
         btn_save.setOnClickListener(new View.OnClickListener() {
@@ -108,5 +126,16 @@ public class EditProfileFragment extends Fragment {
 
     }
 
+    private void pickImageFromGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, IMAGE_PICK_CODE);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            civ_editProfile.setImageURI(data.getData());
+        }
+    }
 }
