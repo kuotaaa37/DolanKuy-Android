@@ -44,7 +44,7 @@ public class DashboardFragment extends Fragment {
     private View view;
     private TextView tv_welcome;
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.singapore, R.drawable.avatar, R.drawable.sate};
+//    int[] sampleImages = {R.drawable.singapore, R.drawable.avatar, R.drawable.sate};
 
 
     @Nullable
@@ -59,14 +59,14 @@ public class DashboardFragment extends Fragment {
         rvData.setLayoutManager(glManager);
 
 
-        carouselView =  view.findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
-        carouselView.setImageListener(new ImageListener() {
-            @Override
-            public void setImageForPosition(int position, ImageView imageView) {
-                imageView.setImageResource(sampleImages[position]);
-            }
-        });
+//        carouselView =  view.findViewById(R.id.carouselView);
+//        carouselView.setPageCount(sampleImages.length);
+//        carouselView.setImageListener(new ImageListener() {
+//            @Override
+//            public void setImageForPosition(int position, ImageView imageView) {
+//                imageView.setImageResource(sampleImages[position]);
+//            }
+//        });
 
         getDetailUser();
         //carousel();
