@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServer;
@@ -21,6 +22,7 @@ import com.example.dolankuyandroid.Model.ResponseUser;
 import com.example.dolankuyandroid.Model.User;
 import com.example.dolankuyandroid.Preferences.Preferences;
 import com.example.dolankuyandroid.R;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -39,10 +41,15 @@ public class EditProfileFragment extends Fragment {
 
     private CircleImageView civ_editProfile;
     private TextView tv_editProfile;
+    private String image;
 
     private User credentials;
 
     private static final int IMAGE_PICK_CODE = 1000;
+
+    public EditProfileFragment(String image){
+        this.image = image;
+    }
 
     @Nullable
     @Override
@@ -57,6 +64,11 @@ public class EditProfileFragment extends Fragment {
 
         civ_editProfile = view.findViewById(R.id.profile_image);
         tv_editProfile = view.findViewById(R.id.tv_editProfile);
+
+        Picasso.get()
+                .load("http://192.168.1.10/DolanKuy-backend/DolanKuy-backend/public/storage/users/"+ image)
+                .into(civ_editProfile);
+
         tv_editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +81,7 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 onEdit();
+
             }
         });
 
@@ -106,7 +119,9 @@ public class EditProfileFragment extends Fragment {
                     if (response.isSuccessful()) {
                         credentials = response.body().getUsers();
                         Toast.makeText(view.getContext(), "Profile has been saved", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(view.getContext(), DashboardActivity.class));
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.frameLayout, new ProfileFragment());
+                        fragmentTransaction.commit();
 
                     } else {
                         Toast.makeText(view.getContext(), email + password + name, Toast.LENGTH_SHORT).show();
