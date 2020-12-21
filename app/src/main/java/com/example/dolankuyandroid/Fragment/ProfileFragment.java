@@ -34,7 +34,7 @@ public class ProfileFragment extends Fragment {
     private View view;
     private Button btn_logout;
     private Button btn_editProfile;
-    private User credentials;
+    private User credentials = new User();
     private TextView tv_username;
     private TextView tv_email;
     private CircleImageView civ_profileImage;
@@ -63,7 +63,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, new EditProfileFragment());
+                fragmentTransaction.replace(R.id.frameLayout, new EditProfileFragment(credentials.getImage()));
                 fragmentTransaction.commit();
             }
         });
@@ -83,14 +83,14 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
 
-                if(!response.body().getUsers().getName().isEmpty()) {
+                if(response.isSuccessful()) {
 
                     credentials = response.body().getUsers();
                     tv_email.setText(credentials.getEmail());
                     tv_username.setText(credentials.getName());
 
                     Picasso.get()
-                            .load("http://192.168.43.227/DolanKuy/storage/app/public/users/"+credentials.getImage())
+                            .load("http://192.168.1.10/DolanKuy-backend/DolanKuy-backend/public/storage/users/"+credentials.getImage())
                             .into(civ_profileImage);
 
                     Toast.makeText(view.getContext(), "Token is valid", Toast.LENGTH_SHORT).show();
