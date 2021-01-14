@@ -32,7 +32,9 @@ private double latitude;
 private double longitude;
 
 @SerializedName("distance")
-private int distance;
+private double distance;
+
+
 
     public int getId() {
         return id;
@@ -74,13 +76,13 @@ private int distance;
         this.category_id = category_id;
     }
 
-//    public String getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(String image) {
-//        this.image = image;
-//    }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getContact() {
         return contact;
@@ -106,11 +108,11 @@ private int distance;
         this.longitude = longitude;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 }

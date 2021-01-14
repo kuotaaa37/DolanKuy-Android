@@ -17,6 +17,7 @@ import com.example.dolankuyandroid.API.APIRequestData;
 import com.example.dolankuyandroid.API.RetroServer;
 import com.example.dolankuyandroid.Model.DataCategory;
 import com.example.dolankuyandroid.Model.ResponseCategory;
+import com.example.dolankuyandroid.Preferences.Preferences;
 import com.example.dolankuyandroid.R;
 
 import java.util.ArrayList;
@@ -37,8 +38,11 @@ public class CategoryFragment extends Fragment {
     private CardView cardIbadah;
     private CardView cardMarket;
     private CardView cardSPBU;
+    private double userLat = 0D;
+    private double userLong = 0D;
 
     private List<DataCategory> categoryListData =  new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -49,6 +53,25 @@ public class CategoryFragment extends Fragment {
         cardSPBU = view.findViewById(R.id.cardSPBU);
         cardMarket = view.findViewById(R.id.cardMarket);
         cardIbadah = view.findViewById(R.id.cardIbadah);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(Preferences.getKeyLatitude(view.getContext()));
+
+
+        if (!Preferences.getKeyLatitude(view.getContext()).equals("0")) {
+            int index = stringBuilder.indexOf("&");
+            StringBuilder stringBuilder1 = new StringBuilder();
+            stringBuilder1.append(Preferences.getKeyLatitude(view.getContext()));
+
+            String lat = String.valueOf(stringBuilder.delete(index, stringBuilder.length()));
+            String longi = String.valueOf(stringBuilder1.delete(0, index + 1));
+
+            System.out.println("Latitude : " + lat);
+            System.out.println("Longitude : " + longi);
+
+            userLat = Double.valueOf(lat);
+            userLong = Double.valueOf(longi);
+        }
 
         showData();
 
@@ -106,10 +129,17 @@ public class CategoryFragment extends Fragment {
                     //Toast.makeText(CategoryActivity.this, "Berhasil Mendapat Respon", Toast.LENGTH_SHORT).show();
 
                     categoryListData = response.body().getCategory();
-                    idSPBU = Integer.toString(categoryListData.get(1).getId());
-                    idKuliner = Integer.toString(categoryListData.get(3).getId());
-                    idTempatIbadah = Integer.toString(categoryListData.get(2).getId());
-                    idMarket = Integer.toString(categoryListData.get(4).getId());
+                    for (int i = 0; i < categoryListData.size(); i++) {
+                        if (categoryListData.get(i).getName().equalsIgnoreCase("spbu")){
+                            idSPBU = Integer.toString(categoryListData.get(i).getId());
+                        } else if (categoryListData.get(i).getName().equalsIgnoreCase("kuliner")){
+                            idKuliner = Integer.toString(categoryListData.get(i).getId());
+                        } else if (categoryListData.get(i).getName().equalsIgnoreCase("tempat ibadah")){
+                            idTempatIbadah = Integer.toString(categoryListData.get(i).getId());
+                        } else if (categoryListData.get(i).getName().equalsIgnoreCase("market")){
+                            idMarket = Integer.toString(categoryListData.get(i).getId());
+                        }
+                    }
 
                 } else {
 
